@@ -1,16 +1,17 @@
 {
   "name": "task-pdf-writer-v2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Writes task PDFs from markdowns",
-  "main": "build.js",
+  "main": "dist/build.js",
   "repository": "https://github.com/plumsirawit/task-pdf-writer-v2.git",
   "author": "Sirawit <plurm2545@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "ts-node-esm build.ts"
+    "build": "esbuild build.ts --bundle --platform=node --target=node16 --packages=external --outfile=dist/build.js --format=esm",
+    "dev": "node ./dist/build.js"
   },
   "bin": {
-    "genpdf": "ts-node-esm build.ts"
+    "genpdf": "dist/build.js"
   },
   "type": "module",
   "dependencies": {
