@@ -1,13 +1,14 @@
+#!/usr/bin/env node
+
 process.env.BIN_SCRIPT = "true";
 import { Listr, ListrTask } from "listr2";
 import * as fs from "fs";
 import { JSDOM } from "jsdom";
-import * as esbuild from "esbuild";
 import fetch from "node-fetch";
 import { promisify } from "util";
 import * as path from "path";
-
-const TEMPLATE_INDEX = fs.readFileSync("./src/template-index.html").toString();
+import globalCSS from "./src/global.css"; // text content
+import TEMPLATE_INDEX from "./src/template-index.html"; // text content
 
 const getFormattedDate = () => {
   const date = new Date();
@@ -23,8 +24,6 @@ const taskList = fs
 const config = JSON.parse(
   fs.readFileSync(path.join(inputDir, "config.json")).toString("utf8")
 );
-
-console.log(config);
 
 const tasks = new Listr(
   [
@@ -42,21 +41,9 @@ const tasks = new Listr(
     {
       title: "Prepare static global.css",
       task: () => {
-        fs.copyFileSync("./src/global.css", "./public/global.css");
+        fs.writeFileSync("./public/global.css", globalCSS);
       },
     },
-    // {
-    //   title: "Bundle global.ts",
-    //   task: () => {
-    //     esbuild.buildSync({
-    //       entryPoints: ["./src/global.ts"],
-    //       bundle: true,
-    //       outfile: "public/global.js",
-    //       globalName: "bundle",
-    //       minify: true,
-    //     });
-    //   },
-    // },
     {
       title: "Convert markdown to PDF",
       task: async (_, task) => {
@@ -81,7 +68,6 @@ const tasks = new Listr(
                   )
                 )
                 .then((resp) => {
-                  console.log(resp);
                   return resp.json() as Promise<Record<string, string>>;
                 })
                 .then((respJson: Record<string, string>) => {
