@@ -1,6 +1,6 @@
 {
   "name": "task-pdf-writer-v2",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Writes task PDFs from markdowns",
   "main": "dist/build.js",
   "repository": "https://github.com/plumsirawit/task-pdf-writer-v2.git",
@@ -11,7 +11,7 @@
     "dev": "node ./dist/build.js"
   },
   "bin": {
-    "genpdf": "node ./dist/build.js"
+    "genpdf": "dist/build.js"
   },
   "type": "module",
   "dependencies": {
