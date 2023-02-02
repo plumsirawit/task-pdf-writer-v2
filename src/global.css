@@ -1,0 +1,64 @@
+body {
+  padding-top: 2%;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-size: 1.05em;
+  font-family: "Sarabun", sans-serif;
+}
+@media screen and (max-width: 1000px) {
+  body {
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 1.7em;
+  }
+}
+button,
+textarea {
+  font-size: 1.05em;
+  font-family: "Sarabun", sans-serif;
+}
+table {
+  font-size: 1em;
+  min-width: 50%;
+}
+table,
+th,
+td {
+  padding: 10px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.twodivs,
+.submitbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.twodivs > div {
+  width: 50%;
+}
+.textdiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.textdiv > textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+}
+.head-mono {
+  font-weight: 500;
+  font-family: "Inconsolata", "Sarabun", sans-serif;
+  color: gray;
+  text-align: right;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+#content {
+  padding-top: 0.2em;
+  /* text-align: center; */
+}
+#maintable {
+  width: 100%;
+}
