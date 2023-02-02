@@ -1,13 +1,13 @@
 {
   "name": "task-pdf-writer-v2",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Writes task PDFs from markdowns",
   "main": "dist/build.js",
   "repository": "https://github.com/plumsirawit/task-pdf-writer-v2.git",
   "author": "Sirawit <plurm2545@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "esbuild build.ts --bundle --platform=node --target=node16 --packages=external --outfile=dist/build.js --format=esm",
+    "build": "esbuild build.ts --bundle --platform=node --target=node16 --packages=external --outfile=dist/build.js --format=esm --tsconfig=tsconfig.json && cp -a src dist",
     "dev": "node ./dist/build.js"
   },
   "bin": {
