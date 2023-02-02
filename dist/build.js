@@ -106,7 +106,7 @@ var tasks = new Listr(
               `<a href="tasks/${taskName.replace(
                 ".md",
                 ".pdf"
-              )}">${taskName.replace(".md", "")}</a>`
+              )}?now=${Date.now()}">${taskName.replace(".md", "")}</a>`
             )
           );
           tr.appendChild(createTd(getFormattedDate()));

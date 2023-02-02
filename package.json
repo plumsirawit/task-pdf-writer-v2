@@ -1,6 +1,6 @@
 {
   "name": "task-pdf-writer-v2",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "Writes task PDFs from markdowns",
   "main": "dist/build.js",
   "repository": "https://github.com/plumsirawit/task-pdf-writer-v2.git",
